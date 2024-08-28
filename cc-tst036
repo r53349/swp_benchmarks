@@ -1,0 +1,56 @@
+// sms problem
+// test cc-tst036
+// arch is linglong1000v100
+
+<units>
+AGX [2]
+PCU [1]
+AXU [2]
+MVU [2]
+SAU [1]
+
+<insns>
+0. n0 [AGX]
+1. n1 [AGX]
+2. n2 [AGX*,SAU]
+3. n3 [AGX*,SAU]
+4. n4 [AGX*,SAU]
+
+<ddg>
+n0{AGX} -> n2{AGX} [A0:R:0:0]
+n0{AGX} -> n2{SAU} [A0:R:0:0]
+n0{AGX} -> n1{AGX} [T1:M:0:0]
+n1{AGX} -> n0{AGX} [A1:R:1:1]
+n1{AGX} -> n1{AGX} [T:R:1:1]
+n2{AGX} -> n0{AGX} [T0:R:1:1]
+n2{SAU} -> n0{AGX} [T0:R:6:1]
+n2{AGX} -> n2{AGX} [T:R:1:1]
+n2{SAU} -> n2{SAU} [T:R:1:1]
+n2{AGX} -> n3{AGX} [T:R:1:1]
+n2{AGX} -> n3{SAU} [T:R:0:1]
+n2{SAU} -> n3{AGX} [T:R:6:1]
+n2{SAU} -> n3{SAU} [T:R:1:1]
+n3{AGX} -> n0{AGX} [T:R:1:0]
+n3{SAU} -> n0{AGX} [T:R:6:0]
+n0{AGX} -> n4{AGX} [T:R:5:0]
+n0{AGX} -> n4{SAU} [T:R:1:0]
+n4{AGX} -> n1{AGX} [T:R:0:0]
+n4{SAU} -> n1{AGX} [T:R:0:0]
+
+<reg_moves>
+0. r276 n2 n0 // v0
+1. r627 n0 n1 // v1
+
+mv0{AGX} -> mv0{AGX} [T:R:1:0]
+mv0{AGX} -> mv0{SAU} [T:R:0:0]
+mv0{SAU} -> mv0{AGX} [T:R:6:0]
+mv0{SAU} -> mv0{SAU} [T:R:1:0]
+mv1{AGX} -> mv1{AGX} [T:R:1:0]
+mv1{AGX} -> mv1{SAU} [T:R:0:0]
+mv1{SAU} -> mv1{AGX} [T:R:6:0]
+mv1{SAU} -> mv1{SAU} [T:R:1:0]
+
+
+
+
+

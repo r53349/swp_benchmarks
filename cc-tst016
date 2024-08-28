@@ -1,0 +1,36 @@
+// sms problem
+// test cc-tst016
+// arch is linglong1000v100
+
+<units>
+AGX [2]
+PCU [1]
+AXU [2]
+MVU [2]
+SAU [1]
+
+<insns>
+0. n0 [AGX]
+1. n1 [AXU]
+2. n2 [AXU]
+3. n3 [AGX]
+
+<ddg>
+n0{AGX} -> n0{AGX} [T:R:1:1]
+n0{AGX} -> n0{AGX} [T:R:1:1]
+n0{AGX} -> n2{AXU} [T:R:1:0]
+n0{AGX} -> n1{AXU} [T:R:1:0]
+n1{AXU} -> n0{AGX} [A:R:0:1]
+n1{AXU} -> n2{AXU} [T:R:0:0]
+n2{AXU} -> n1{AXU} [T:R:0:1]
+n2{AXU} -> n2{AXU} [T:R:1:1]
+n2{AXU} -> n0{AGX} [A:R:0:1]
+n2{AXU} -> n3{AGX} [T:R:1:0]
+n3{AGX} -> n1{AXU} [A:R:0:1]
+n3{AGX} -> n3{AGX} [T:R:1:1]
+n3{AGX} -> n3{AGX} [T:R:1:1]
+
+<no reg_moves>
+
+
+

@@ -1,0 +1,96 @@
+// sms problem
+// test cc-tst074
+// arch is linglong1000v100
+
+<units>
+AGX [2]
+PCU [1]
+AXU [2]
+MVU [2]
+SAU [1]
+
+<insns>
+0. n0 [AGX*,SAU]
+1. n1 [AGX*,SAU]
+2. n2 [AGX*,SAU]
+3. n3 [AGX*,SAU]
+4. n4 [AGX*,SAU]
+5. n5 [AGX*,SAU]
+6. n6 [AGX*,SAU]
+
+<ddg>
+n0{AGX} -> n3{AGX} [A0:R:0:0]
+n0{AGX} -> n3{SAU} [A0:R:0:0]
+n0{SAU} -> n3{AGX} [A0:R:1:0]
+n0{SAU} -> n3{SAU} [A0:R:0:0]
+n0{AGX} -> n1{AGX} [T1:R:1:0]
+n0{AGX} -> n1{SAU} [T1:R:0:0]
+n0{SAU} -> n1{AGX} [T1:R:6:0]
+n0{SAU} -> n1{SAU} [T1:R:1:0]
+n1{AGX} -> n0{AGX} [A1:R:0:1]
+n1{AGX} -> n0{SAU} [A1:R:0:1]
+n1{SAU} -> n0{AGX} [A1:R:1:1]
+n1{SAU} -> n0{SAU} [A1:R:0:1]
+n1{AGX} -> n2{AGX} [T2:R:1:0]
+n1{AGX} -> n2{SAU} [T2:R:0:0]
+n1{SAU} -> n2{AGX} [T2:R:6:0]
+n1{SAU} -> n2{SAU} [T2:R:1:0]
+n2{AGX} -> n1{AGX} [A2:R:0:1]
+n2{AGX} -> n1{SAU} [A2:R:0:1]
+n2{SAU} -> n1{AGX} [A2:R:1:1]
+n2{SAU} -> n1{SAU} [A2:R:0:1]
+n2{AGX} -> n2{AGX} [T:R:1:1]
+n2{SAU} -> n2{SAU} [T:R:1:1]
+n3{AGX} -> n0{AGX} [T0:R:1:1]
+n3{AGX} -> n0{SAU} [T0:R:0:1]
+n3{SAU} -> n0{AGX} [T0:R:6:1]
+n3{SAU} -> n0{SAU} [T0:R:1:1]
+n3{AGX} -> n3{AGX} [T:R:1:1]
+n3{SAU} -> n3{SAU} [T:R:1:1]
+n3{AGX} -> n4{AGX} [T:R:1:1]
+n3{AGX} -> n4{SAU} [T:R:0:1]
+n3{SAU} -> n4{AGX} [T:R:6:1]
+n3{SAU} -> n4{SAU} [T:R:1:1]
+n4{AGX} -> n0{AGX} [T:R:1:0]
+n4{AGX} -> n0{SAU} [T:R:0:0]
+n4{SAU} -> n0{AGX} [T:R:6:0]
+n4{SAU} -> n0{SAU} [T:R:1:0]
+n0{AGX} -> n5{AGX} [T:R:1:0]
+n0{AGX} -> n5{SAU} [T:R:0:0]
+n0{SAU} -> n5{AGX} [T:R:6:0]
+n0{SAU} -> n5{SAU} [T:R:1:0]
+n5{AGX} -> n1{AGX} [T:R:1:0]
+n5{AGX} -> n1{SAU} [T:R:0:0]
+n5{SAU} -> n1{AGX} [T:R:6:0]
+n5{SAU} -> n1{SAU} [T:R:1:0]
+n1{AGX} -> n6{AGX} [T:R:1:0]
+n1{AGX} -> n6{SAU} [T:R:0:0]
+n1{SAU} -> n6{AGX} [T:R:6:0]
+n1{SAU} -> n6{SAU} [T:R:1:0]
+n6{AGX} -> n2{AGX} [T:R:1:0]
+n6{AGX} -> n2{SAU} [T:R:0:0]
+n6{SAU} -> n2{AGX} [T:R:6:0]
+n6{SAU} -> n2{SAU} [T:R:1:0]
+
+<reg_moves>
+0. r151 n3 n0 // v0
+1. r189 n0 n1 // v1
+2. r190 n1 n2 // v2
+
+mv0{AGX} -> mv0{AGX} [T:R:1:0]
+mv0{AGX} -> mv0{SAU} [T:R:0:0]
+mv0{SAU} -> mv0{AGX} [T:R:6:0]
+mv0{SAU} -> mv0{SAU} [T:R:1:0]
+mv1{AGX} -> mv1{AGX} [T:R:1:0]
+mv1{AGX} -> mv1{SAU} [T:R:0:0]
+mv1{SAU} -> mv1{AGX} [T:R:6:0]
+mv1{SAU} -> mv1{SAU} [T:R:1:0]
+mv2{AGX} -> mv2{AGX} [T:R:1:0]
+mv2{AGX} -> mv2{SAU} [T:R:0:0]
+mv2{SAU} -> mv2{AGX} [T:R:6:0]
+mv2{SAU} -> mv2{SAU} [T:R:1:0]
+
+
+
+
+
